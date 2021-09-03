@@ -1,0 +1,28 @@
+{
+   "actors":[
+      {
+         "type":"Actor",
+         "name":"Instructy",
+         "active":false,
+         "transform":{
+            "position":[
+               370,
+               300
+            ]
+         },
+         "components":[
+            {
+               "type":"TextComponent",
+               "fontName":"fonts/big_noodle_titling_oblique.ttf",
+               "fontSize":96,
+               "color":[
+                  0.6,
+                  0.3,
+                  1
+               ],
+               "text":"Level 2"
+            }
+         ]
+      }
+   ]
+}

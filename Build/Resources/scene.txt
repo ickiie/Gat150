@@ -1,0 +1,337 @@
+{
+	"actors":[
+		{
+			"type":"Actor",
+			"tag":"Player",
+			"name": "Player",
+			"prototype": true,
+			"transform":{
+				"position": [400, 200],
+				"scale": [2, 2],
+				"rotation": 0
+			},
+			"components":[
+				{
+					"type":"PlayerComponent",
+					"speed":15,
+					"jump":400
+				},
+				{
+					"type":"SpriteAnimationComponent",
+					"textureName": "animations/characters.png",
+					"fps": 10,
+					"numFramesX": 18,
+					"numFramesY": 11,
+					"startFrame": 93,
+					"endFrame": 96,
+					"sequences": [
+					{
+						"name":"idle",
+						"sequence.fps": 3,
+						"sequence.startFrame": 0,
+						"sequence.endFrame": 1
+					},
+					{
+						"name":"walk_right",
+						"sequence.fps": 10,
+						"sequence.startFrame": 93,
+						"sequence.endFrame": 95
+					},
+					{
+						"name":"walk_left",
+						"sequence.fps": 10,
+						"sequence.startFrame": 165,
+						"sequence.endFrame": 167
+					}
+					],
+					"defaultSequence":"idle"
+				},
+				{
+					"type":"RBPhysicsComponent",
+					"data.isDynamic": true,
+					"data.density": 1,
+					"data.lockAngle": true,
+					"data.restitution": 0,
+					"data.gravityScale": 1,
+					"data.size": [30,60]
+				},
+				{
+					"type":"AudioComponent",
+					"soundName":"audio/grunt.wav",
+					"playOnAwake":true
+				}
+
+			]
+		},
+		{
+			"type":"Actor",
+			"tag":"Enemy",
+			"name":"Enemy",
+			"active": false,
+			"transform":{
+				"position": [500, 200],
+				"rotation": 0
+			},
+			"components":[
+				{
+					"type":"EnemyComponent",
+					"speed":7
+				},
+				{
+					"type":"SpriteAnimationComponent",
+					"textureName": "animations/bat.png",
+					"fps": 10,
+					"numFramesX": 4,
+					"numFramesY": 1,
+					"startFrame": 1,
+					"endFrame": 3
+				},
+				{
+					"type":"RBPhysicsComponent",
+					"data.isDynamic": true,
+					"data.isSensor": false,
+					"data.density": 1.5,
+					"data.lockAngle": true,
+					"data.restitution": 1.05,
+					"data.gravityScale": 0,
+					"data.size": [32,32]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"tag":"Enemy2",
+			"name":"Enemy2",
+			"active": false,
+			"transform":{
+				"position": [500, 200],
+				"rotation": 0
+			},
+			"components":[
+				{
+					"type":"EnemyComponent",
+					"speed":9
+				},
+				{
+					"type":"SpriteAnimationComponent",
+					"textureName": "animations/bat.png",
+					"fps": 10,
+					"numFramesX": 4,
+					"numFramesY": 1,
+					"startFrame": 1,
+					"endFrame": 3
+				},
+				{
+					"type":"RBPhysicsComponent",
+					"data.isDynamic": true,
+					"data.isSensor": false,
+					"data.density": 1.5,
+					"data.lockAngle": true,
+					"data.restitution": 1.05,
+					"data.gravityScale": 0,
+					"data.size": [32,32]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"tag":"Enemy3",
+			"name":"Enemy3",
+			"active": false,
+			"transform":{
+				"position": [300, 400],
+				"rotation": 0
+			},
+			"components":[
+				{
+					"type":"EnemyComponent",
+					"speed":8
+				},
+				{
+					"type":"SpriteAnimationComponent",
+					"textureName": "animations/bat.png",
+					"fps": 10,
+					"numFramesX": 4,
+					"numFramesY": 1,
+					"startFrame": 1,
+					"endFrame": 3
+				},
+				{
+					"type":"RBPhysicsComponent",
+					"data.isDynamic": true,
+					"data.isSensor": false,
+					"data.density": 1.5,
+					"data.lockAngle": true,
+					"data.restitution": 1.05,
+					"data.gravityScale": 0,
+					"data.size": [32,32]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"prototype":true,
+			"name":"Coin",
+			"tag":"Pickup",
+			"transform":{
+				"position": [700, 400],
+				"rotation": 0
+			},
+			"components":[
+				{
+					"type":"PickupComponent"
+				},
+				{
+					"type":"SpriteAnimationComponent",
+					"textureName": "animations/coin.png",
+					"fps": 20,
+					"numFramesX": 8,
+					"numFramesY": 1					
+				},
+				{
+					"type":"RBPhysicsComponent",
+					"data.isDynamic": true,
+					"data.isSensor": false,
+					"data.density": 1.5,
+					"data.lockAngle": true,
+					"data.restitution": 0.7,
+					"data.gravityScale": 0.3,
+					"data.size": [16,16]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"name":"tile01",
+			"tag":"Ground",
+			"prototype": true,
+			"transform":{
+				"scale": [2, 2]
+			},
+			"components":[
+				{
+					"type":"SpriteComponent",
+					"textureName": "tiles/tileset2_32x32.png",
+					"rect":[0, 128, 32, 32]
+				},
+				{
+					"type":"RBPhysicsComponent",
+					"data.isDynamic": false,
+					"data.restitution": 0,
+					"data.density": 1,
+					"data.size": [64,64]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"name":"tile02",
+			"prototype": true,
+			"tag":"Ground",
+			"transform":{
+				"scale": [2, 2]
+			},
+			"components":[
+				{
+					"type":"SpriteComponent",
+					"textureName": "tiles/tileset2_32x32.png",
+					"rect":[16, 128, 32, 32]
+				},
+				{
+					"type":"RBPhysicsComponent",
+					"data.isDynamic": false,
+					"data.restitution": 0,
+					"data.density": 1,
+					"data.size": [64,64]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"name":"tile03",
+			"prototype": true,
+			"tag":"Ground",
+			"transform":{
+				"scale": [2, 2]
+			},
+			"components":[
+				{
+					"type":"SpriteComponent",
+					"textureName": "tiles/tileset2_32x32.png",
+					"rect":[32, 128, 32, 32]
+				},
+				{
+					"type":"RBPhysicsComponent",
+					"data.isDynamic": false,
+					"data.restitution": 0,
+					"data.density": 1,
+					"data.size": [64,64]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"name":"tile04",
+			"prototype": true,
+			"tag":"Ground",
+			"transform":{
+				"scale": [2, 2]
+			},
+			"components":[
+				{
+					"type":"SpriteComponent",
+					"textureName": "tiles/tileset2_32x32.png",
+					"rect":[80, 128, 32, 32]
+				},
+				{
+					"type":"RBPhysicsComponent",
+					"data.isDynamic": false,
+					"data.restitution": 0,
+					"data.density": 1,
+					"data.size": [64,64]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"tag":"Wall",
+			"transform":{
+				"position": [800, 20],
+				"rotation": 90
+			},
+			"components":[
+				{
+					"type":"SpriteComponent",
+					"textureName": "ground.png"
+				},
+				{
+					"type":"RBPhysicsComponent",
+					"data.isDynamic": false,
+					"data.density": 1,
+					"data.size": [8000,20]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"tag":"Wall",
+			"transform":{
+				"position": [0, 20],
+				"rotation": 90
+			},
+			"components":[
+				{
+					"type":"SpriteComponent",
+					"textureName": "ground.png"
+				},
+				{
+					"type":"RBPhysicsComponent",
+					"data.isDynamic": false,
+					"data.density": 1,
+					"data.size": [8000,20]
+				}
+			]
+		}
+
+	]
+}
